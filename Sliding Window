@@ -1,0 +1,33 @@
+/lecture 26 sliding window
+class Solution{
+    static int maximumSumSubarray(int k, ArrayList < integer > Arr , int N){
+        /*int max = Integer .MIN_VALUE;
+        int sum =0;
+        for(int i=0;i<=N-k;i++)
+        {
+            int sum= 0;
+            for(int j=0;j<k,j++)
+            {
+                sum = sum +Arr.get(i+j);
+            }
+            //where we have to found the sum of the sub array
+            if(sum>max) max = sum;
+        }
+        return max;*/
+        int  max = Integer.MIN_VALUE;
+       int sum = 0;
+       //finding sum of first window;
+       for(int i=0;i<k;i++){
+        sum = sum + Arr.get(i);
+       }
+       int max = sum;
+       //sum of first window found
+       for(int i=0;i<N-k;i++)
+       {
+        sum = sum + Arr.get(i) + Arr.get(i+k);
+        if(sum> max) max = sum;
+       }
+       return max;
+    }
+
+}
